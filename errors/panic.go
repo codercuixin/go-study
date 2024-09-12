@@ -1,12 +1,34 @@
 package main
 
-import "log"
+import (
+	"log"
+	"runtime"
+)
 
 func main() {
 	// recoverFromPanic()
 	// recoverLastPanic()
 	// recoverTwoPanic()
-	recoverRight()
+	// recoverRight()
+	nopanic()
+	panicnil()
+}
+
+func panicnil(){
+	defer func(){
+		e := recover()
+		println(e == nil)
+		_, ok := e.(*runtime.PanicNilError)
+		println(ok)
+	}()
+	panic(nil)
+}
+
+func nopanic(){
+	defer func(){
+		e := recover()
+		println(e == nil)
+	}()
 }
 
 func recoverRight(){
