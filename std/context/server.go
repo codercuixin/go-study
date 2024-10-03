@@ -25,6 +25,9 @@ var resultsTemplate  = template.Must(template.New("results").Parse(`
 `))
 
 func main(){
+	// https://go.dev/blog/context
+
+	// test:
 	// http://localhost:8080/search?q=headache
 	// http://localhost:8080/search?q=headache&timeout=100ms
 	http.HandleFunc("/search", handleSearch)
