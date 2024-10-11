@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+// import "math"
 
 func main() {
 	// fmt.Printf("% X\n", "abc")
@@ -22,7 +23,7 @@ func main() {
 	// fmt.Printf("%v, %d", s, 10)
 	// 输出完整的结构体信息，带字段名
 	// fmt.Printf("%+v", s)
-	
+
 	//按 go 语法格式输出
 	// fmt.Printf("%#v", s)
 
@@ -55,7 +56,7 @@ func main() {
 	// fmt.Printf("%o", 10)//base 8
 	// fmt.Printf("%O", 10)//base 8 with 0o prefix
 	// s := `He said, "Hello, world!"\n`
- 	// formatted :=	fmt.Sprintf("%q", s)
+	// formatted :=	fmt.Sprintf("%q", s)
 	// fmt.Println(formatted) //"He said, \"Hello, world!\"\\n"
 
 	// fmt.Printf("%U\n", 0x78)
@@ -66,6 +67,31 @@ func main() {
 	// fmt.Printf("%e\n", 100.0)
 
 	// fmt.Printf("%f", 123.456)
-	fmt.Printf("%g\n", 1334777777777.0)
-	fmt.Printf("%g\n", 122.0)
+	// fmt.Printf("%g\n", 1334777777777.0)
+	// fmt.Printf("%g\n", 122.0)
+
+	// var s string
+	// var i int
+	// fmt.Sscanf(" 1234567", "%5s%d", &s, &i)
+	// fmt.Printf("%s\n%d\n", s, i)
+	// fmt.Sscanf(" 12 34 567", "%5s%d", &s, &i)
+	// fmt.Printf("%s\n%d\n", s, i)
+
+	// pi := math.Pi
+	// fmt.Printf("%v %g %.2f (%6.2f) %e\n", pi, pi, pi, pi, pi)
+
+	// Runes are integers but when printed with %c show the character with that
+	// Unicode value. The %q verb shows them as quoted characters, %U as a
+	// hex Unicode code point, and %#U as both a code point and a quoted
+	// printable form if the rune is printable.
+	smile := '😀'
+	fmt.Printf("%v %d %c %q %U %#U\n", smile, smile, smile, smile, smile, smile)
+	// Result: 128512 128512 😀 '😀' U+1F600 U+1F600 '😀'
+
+
+	// Strings are formatted with %v and %s as-is, with %q as quoted strings,
+	// and %#q as backquoted strings.
+	placeholders := `foo "bar"`
+	fmt.Printf("%v %s %q %#q\n", placeholders, placeholders, placeholders, placeholders)
+	// Result: foo "bar" foo "bar" "foo \"bar\"" `foo "bar"`
 }
